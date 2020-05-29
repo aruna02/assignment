@@ -1,0 +1,2169 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Roster Management System API",
+        "description": "Complete HR Management System",
+        "contact": {
+            "email": "omprakash.jagri@bidhee.com"
+        },
+        "version": "1.0.0"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/device-registration": {
+            "post": {
+                "tags": [
+                    "Device Register"
+                ],
+                "summary": "Device Registration",
+                "operationId": "deviceRegister",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "identifier",
+                        "in": "formData",
+                        "description": "Identifier",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "formData",
+                        "description": "Device Type( IOS or ANDROID)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/communication": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of communication",
+                "operationId": "communication",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/meetingPurpose": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of meetingPurpose",
+                "operationId": "meetingPurpose",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/services": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of services",
+                "operationId": "services",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/leadSource": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of leadSource",
+                "operationId": "leadSource",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/organization": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of organization",
+                "operationId": "organization",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/segment": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of segment",
+                "operationId": "segment",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/salutation": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of salutation",
+                "operationId": "salutation",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/reminderType": {
+            "get": {
+                "tags": [
+                    "Dropdown"
+                ],
+                "summary": "List of reminder type",
+                "operationId": "reminderType",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/employee-list": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "List of Employee",
+                "operationId": "employee",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/employee/{id}/detail": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Employee detail",
+                "operationId": "detail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": " Employee ID",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/profile-detail": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "User Profile Detail",
+                "operationId": "profileDetail",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/lead/store": {
+            "post": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "lead store",
+                "operationId": "leadStore",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "company_name",
+                        "in": "formData",
+                        "description": "company_name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "client_address",
+                        "in": "formData",
+                        "description": "client_address",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contact_person",
+                        "in": "formData",
+                        "description": "contact_person",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contact_no_1",
+                        "in": "formData",
+                        "description": "contact_no_1",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contact_no_2",
+                        "in": "formData",
+                        "description": "contact_no_2",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "designation",
+                        "in": "formData",
+                        "description": "designation",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "purpose_of_meeting",
+                        "in": "formData",
+                        "description": "purpose_of_meeting",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "means_of_communication",
+                        "in": "formData",
+                        "description": "means_of_communication",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "services",
+                        "in": "formData",
+                        "description": "services",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "source_of_leads",
+                        "in": "formData",
+                        "description": "source_of_leads",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "client_approach_cost",
+                        "in": "formData",
+                        "description": "client_approach_cost",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "next_meeting_date",
+                        "in": "formData",
+                        "description": "next_meeting_date",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "brief_description",
+                        "in": "formData",
+                        "description": "brief_description",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "discount",
+                        "in": "formData",
+                        "description": "discount",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "final_cost",
+                        "in": "formData",
+                        "description": "final_cost",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/lead/edit": {
+            "post": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "lead edit",
+                "operationId": "leadEdit",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "description": "Lead Id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "company_name",
+                        "in": "formData",
+                        "description": "company_name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "client_address",
+                        "in": "formData",
+                        "description": "client_address",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contact_person",
+                        "in": "formData",
+                        "description": "contact_person",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contact_no_1",
+                        "in": "formData",
+                        "description": "contact_no_1",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contact_no_2",
+                        "in": "formData",
+                        "description": "contact_no_2",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "designation",
+                        "in": "formData",
+                        "description": "designation",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "purpose_of_meeting",
+                        "in": "formData",
+                        "description": "purpose_of_meeting",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "means_of_communication",
+                        "in": "formData",
+                        "description": "means_of_communication",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "services",
+                        "in": "formData",
+                        "description": "services",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "source_of_leads",
+                        "in": "formData",
+                        "description": "source_of_leads",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "client_approach_cost",
+                        "in": "formData",
+                        "description": "client_approach_cost",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "next_meeting_date",
+                        "in": "formData",
+                        "description": "next_meeting_date",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "brief_description",
+                        "in": "formData",
+                        "description": "brief_description",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "discount",
+                        "in": "formData",
+                        "description": "discount",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "final_cost",
+                        "in": "formData",
+                        "description": "final_cost",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/lead": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "List of Lead",
+                "operationId": "lead",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/lead/{id}/detail": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Lead detail",
+                "operationId": "leadDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": " Leadd ID",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/lead/move": {
+            "post": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Move Lead",
+                "operationId": "movelead",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "description": "Lead Id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "service_required",
+                        "in": "formData",
+                        "description": "Service Required",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cost",
+                        "in": "formData",
+                        "description": "Cost",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "discount",
+                        "in": "formData",
+                        "description": "Discount",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "final_cost",
+                        "in": "formData",
+                        "description": "Final Cost",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "active_lead_services",
+                        "in": "formData",
+                        "description": "Product/Service",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/lead/convert": {
+            "post": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Move Lead",
+                "operationId": "movelead",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "description": "Lead Id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "service_duration",
+                        "in": "formData",
+                        "description": "in month",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contract_start",
+                        "in": "formData",
+                        "description": "Contract Starts",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contract_end",
+                        "in": "formData",
+                        "description": "Contract Ends",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "payment",
+                        "in": "formData",
+                        "description": "Payment",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "final_discount",
+                        "in": "formData",
+                        "description": "Final Discount",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "final_payment",
+                        "in": "formData",
+                        "description": "Final Payment",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "contract_image",
+                        "in": "formData",
+                        "description": "Contract Image",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/daily_client": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "List of Daily Clint",
+                "operationId": "dailyClint",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/active_client": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "List of Active Clint",
+                "operationId": "activeClint",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/converted_client": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "List of converted Clint",
+                "operationId": "convertedClient",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/rejected_client": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "List of rejected Clint",
+                "operationId": "rejectedClint",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/advance_search": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "serch lead",
+                "operationId": "serchLead",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "company_name",
+                        "in": "query",
+                        "description": "company name",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "search_from",
+                        "in": "query",
+                        "description": "search_from",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "search_to",
+                        "in": "query",
+                        "description": "search_to",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "status (eg daily clint ..)",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/leave-type": {
+            "get": {
+                "tags": [
+                    "Leave"
+                ],
+                "summary": "List of Leave Type",
+                "operationId": "leave",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/leave-request": {
+            "post": {
+                "tags": [
+                    "Leave"
+                ],
+                "summary": "Leave Request",
+                "operationId": "leaveRequest",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "leave_type_id",
+                        "in": "formData",
+                        "description": "Leave Type",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "leave_start_date",
+                        "in": "formData",
+                        "description": "Leave Satrt Y-M-D",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "leave_end_date",
+                        "in": "formData",
+                        "description": "leave end date  Y-M-D",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "no_of_leave",
+                        "in": "formData",
+                        "description": "no_of_leave",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "half_leave",
+                        "in": "formData",
+                        "description": "half_leave",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "half_leave_type",
+                        "in": "formData",
+                        "description": "half_leave_type",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "reason",
+                        "in": "formData",
+                        "description": "reason",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "leave_status",
+                        "in": "formData",
+                        "description": "leave_status",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "year",
+                        "in": "formData",
+                        "description": "year",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/apply-leave": {
+            "get": {
+                "tags": [
+                    "Leave"
+                ],
+                "summary": "List of Apply Leave",
+                "operationId": "applyLeave",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/leave-list": {
+            "get": {
+                "tags": [
+                    "Leave"
+                ],
+                "summary": "List of Leave",
+                "operationId": "allLeave",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/edit-leave": {
+            "post": {
+                "tags": [
+                    "Leave"
+                ],
+                "summary": "Edit Leave",
+                "operationId": "editLeave",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "description": "Leave Id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "leave_type_id",
+                        "in": "formData",
+                        "description": "Leave Type",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "leave_start_date",
+                        "in": "formData",
+                        "description": "Leave Satrt Y-M-D",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "leave_end_date",
+                        "in": "formData",
+                        "description": "leave end date  Y-M-D",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "no_of_leave",
+                        "in": "formData",
+                        "description": "no_of_leave",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "half_leave",
+                        "in": "formData",
+                        "description": "half_leave",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "half_leave_type",
+                        "in": "formData",
+                        "description": "half_leave_type",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "reason",
+                        "in": "formData",
+                        "description": "reason",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "leave_status",
+                        "in": "formData",
+                        "description": "leave_status",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "year",
+                        "in": "formData",
+                        "description": "year",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/leave-status": {
+            "post": {
+                "tags": [
+                    "Leave"
+                ],
+                "summary": "Edit Leave Status",
+                "operationId": "editLeaveStatus",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "leave_id",
+                        "in": "formData",
+                        "description": "Leave Id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "leave_status",
+                        "in": "formData",
+                        "description": "leave_status",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Authenticate"
+                ],
+                "summary": "Login / Access Token",
+                "operationId": "login",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "formData",
+                        "description": "Username / Email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Password",
+                        "required": true,
+                        "type": "string",
+                        "format": "password"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/checkin": {
+            "post": {
+                "tags": [
+                    "Mobile Check in"
+                ],
+                "summary": "mobile check in",
+                "operationId": "MobileCheckin",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "formData",
+                        "description": "location",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "lat",
+                        "in": "formData",
+                        "description": "lat",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "long",
+                        "in": "formData",
+                        "description": "long",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "checkin",
+                        "in": "formData",
+                        "description": "checkin (Y-m-d H:i:s)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/checkout": {
+            "post": {
+                "tags": [
+                    "Mobile Check in"
+                ],
+                "summary": "mobile check out",
+                "operationId": "MobileCheckout",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "checkin_id",
+                        "in": "formData",
+                        "description": "checkin_id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "checkout",
+                        "in": "formData",
+                        "description": "checkout (Y-m-d H:i:s)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/create/notice": {
+            "post": {
+                "tags": [
+                    "Notice"
+                ],
+                "summary": "notice store",
+                "operationId": "noticeStore",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "title",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "description",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "notice_date",
+                        "in": "formData",
+                        "description": "y-m-d",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/notice/update/{id}": {
+            "post": {
+                "tags": [
+                    "Notice"
+                ],
+                "summary": "notice edit",
+                "operationId": "noticeEdit",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Reminder Id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "title",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "description",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "notice_date",
+                        "in": "formData",
+                        "description": "y-m-d",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/notice": {
+            "get": {
+                "tags": [
+                    "Notice"
+                ],
+                "summary": "List of notice",
+                "operationId": "noticeList",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/notice/{id}/detail": {
+            "get": {
+                "tags": [
+                    "Notice"
+                ],
+                "summary": "Notice detail",
+                "operationId": "noticeDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": " Reminder ID",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/create/reminder": {
+            "post": {
+                "tags": [
+                    "Reminder"
+                ],
+                "summary": "reminder store",
+                "operationId": "reminderStore",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "title",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reminder_type",
+                        "in": "formData",
+                        "description": "get list dropdown reminder type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_from",
+                        "in": "formData",
+                        "description": "remind_from",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_to",
+                        "in": "formData",
+                        "description": "remind_to",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_before",
+                        "in": "formData",
+                        "description": "remind_before",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "note",
+                        "in": "formData",
+                        "description": "note",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "additional_notes",
+                        "in": "formData",
+                        "description": "additional_notes",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "priority",
+                        "in": "formData",
+                        "description": "get list of priority API",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/reminder/update/{id}": {
+            "post": {
+                "tags": [
+                    "Reminder"
+                ],
+                "summary": "reminder edit",
+                "operationId": "reminderEdit",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Reminder Id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "title",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reminder_type",
+                        "in": "formData",
+                        "description": "reminder_type",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_from",
+                        "in": "formData",
+                        "description": "remind_from",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_to",
+                        "in": "formData",
+                        "description": "remind_to",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_before",
+                        "in": "formData",
+                        "description": "remind_before",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "note",
+                        "in": "formData",
+                        "description": "note",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "additional_notes",
+                        "in": "formData",
+                        "description": "additional_notes",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "priority",
+                        "in": "formData",
+                        "description": "priority",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/reminder": {
+            "get": {
+                "tags": [
+                    "Reminder"
+                ],
+                "summary": "List of Reminder",
+                "operationId": "reminderList",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization token <Bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/reminder/{id}/detail": {
+            "get": {
+                "tags": [
+                    "Reminder"
+                ],
+                "summary": "Reminder detail",
+                "operationId": "reminderDetail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": " Reminder ID",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/priority": {
+            "get": {
+                "tags": [
+                    "Reminder"
+                ],
+                "summary": "List of Reinder priority",
+                "operationId": "priorityList",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/tracking/employee": {
+            "post": {
+                "tags": [
+                    "Tracking Employee"
+                ],
+                "summary": "Driver Tracking",
+                "operationId": "trackingDraving",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authentication token <bearer> <token>",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "lat",
+                        "in": "formData",
+                        "description": "Latitude",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "long",
+                        "in": "formData",
+                        "description": "Longitude",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "formData",
+                        "description": "location",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "bearing",
+                        "in": "formData",
+                        "description": "Bearing",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "date_time",
+                        "in": "formData",
+                        "description": "date_time Y-M-D H:M:S",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "heading",
+                        "in": "formData",
+                        "description": "Heading",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "406": {
+                        "description": "not acceptable"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

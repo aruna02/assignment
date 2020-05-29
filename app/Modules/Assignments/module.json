@@ -1,0 +1,14 @@
+{
+    "name": "Assignments",
+    "alias": "assignments",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "App\\Modules\\Assignments\\Providers\\AssignmentsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
